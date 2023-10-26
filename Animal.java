@@ -82,22 +82,25 @@ public class Animal {
         }
     }
 
-public static String getAnimalCountMessage(int count, String animalType) {
-        String pluralS = (count == 1) ? "" : "s";
-        return "There " + (count == 1 ? "is" : "are") + " currently " + count + " " + animalType + pluralS + " in our world.";
+    public static String getAnimalCountMessage(int count, String animalType) {
+        if (animalType.equals("fish")) {
+            return "There " + (count == 1 ? "is" : "are") + " currently " + count + " fish in our world.";
+        } else {
+            String pluralS = (count == 1) ? "" : "s";
+            return "There " + (count == 1 ? "is" : "are") + " currently " + count + " " + animalType + pluralS
+                    + " in our world.";
+        }
     }
 
     public static void main(String[] args) {
         // Example usage
         new Animal("lion", 4, Type.MAMMAL);
-        numberOfMammals++;
 
         new Animal("salmon", 0, Type.FISH);
-        numberOfFish++;
 
         new Animal("eagle", 2, Type.BIRD);
         numberOfBirds++;
-        
+
         System.out.println(getAnimalCountMessage(getNumberOfAnimals(), "animal"));
         System.out.println(getAnimalCountMessage(getNumberOfMammals(), "mammal"));
         System.out.println(getAnimalCountMessage(getNumberOfFish(), "fish"));
