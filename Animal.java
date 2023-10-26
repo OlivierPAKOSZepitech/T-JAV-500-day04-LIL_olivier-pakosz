@@ -2,18 +2,17 @@ public class Animal {
     protected enum Type { MAMMAL, FISH, BIRD }
 
     // Attributes
-    private String name;
-    private int legs;
-    private Type type;
+    protected String name;
+    protected int legs;
+    protected Type type;
 
     // Private static fields to keep track of the number of animals of each type
-    private static int numberOfAnimals = 0;
-    private static int numberOfMammals = 0;
-    private static int numberOfFish = 0;
-    private static int numberOfBirds = 0;
+    protected static int numberOfAnimals = 0;
+    protected static int numberOfMammals = 0;
+    protected static int numberOfFish = 0;
+    protected static int numberOfBirds = 0;
 
-    // Protected constructor
-    public Animal(String name, int legs, Type type) {
+    protected Animal(String name, int legs, Type type) {
         this.name = name;
         this.legs = legs;
         this.type = type;
@@ -69,7 +68,7 @@ public class Animal {
     }
 
     // Convert the Type enum to a string
-    private String getTypeString(Type type) {
+    protected String getTypeString(Type type) {
         switch (type) {
             case MAMMAL:
                 return "mammal";
