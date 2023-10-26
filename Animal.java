@@ -83,40 +83,13 @@ public class Animal {
         }
     }
 
-   
-public class Cat extends Animal {
-    private String color;
-
-    public Cat(String name, String color) {
-        super(name, 4, Type.MAMMAL);
-        this.color = color != null ? color : "grey";
-        System.out.println(getName() + ": MEEEOOWWWW");
-    }
-
-    public Cat(String name) {
-        this(name, null);
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void meow() {
-        System.out.println(getName() + " the " + getColor() + " kitty is meowing.");
-    }
+    // Example main method
+// Example main method
+public static void main(String[] args) {
+    Cat isidore = new Cat("Isidore", "orange");
+    System.out.println(
+        isidore.getName() + " has " + isidore.getLegs() + " legs and is a " + isidore.getType() + ".");
+    isidore.meow();
 }
 
-
-    // Example main method
-    public static void main(String[] args) {
-        Animal isidore = new Animal("Isidore", 4, Type.MAMMAL);
-        Animal nemo = new Animal("Nemo", 0, Type.FISH);
-        Animal tweety = new Animal("Tweety", 2, Type.BIRD);
-
-        // Display the number of animals of each type
-        System.out.println("There " + (numberOfMammals == 1 ? "is" : "are") + " currently " + numberOfMammals + " mammal(s) in our world.");
-        System.out.println("There " + (numberOfFish == 1 ? "is" : "are") + " currently " + numberOfFish + " fish in our world.");
-        System.out.println("There " + (numberOfBirds == 1 ? "is" : "are") + " currently " + numberOfBirds + " bird(s) in our world.");
-        System.out.println("There " + (numberOfAnimals == 1 ? "is" : "are") + " currently " + numberOfAnimals + " animal(s) in our world.");
-    }
 }
