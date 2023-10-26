@@ -13,13 +13,12 @@ public class Animal {
     private static int numberOfBirds = 0;
 
     // Protected constructor
-    protected Animal(String name, int legs, Type type) {
+    public Animal(String name, int legs, Type type) {
         this.name = name;
         this.legs = legs;
         this.type = type;
         System.out.println("My name is " + name + " and I am a " + getTypeString(type) + "!");
-        
-        // Increment the counters for total animals and the specific type of animal
+    
         numberOfAnimals++;
         switch (type) {
             case MAMMAL:
@@ -83,13 +82,25 @@ public class Animal {
         }
     }
 
-    // Example main method
-// Example main method
-public static void main(String[] args) {
-    Cat isidore = new Cat("Isidore", "orange");
-    System.out.println(
-        isidore.getName() + " has " + isidore.getLegs() + " legs and is a " + isidore.getType() + ".");
-    isidore.meow();
-}
+public static String getAnimalCountMessage(int count, String animalType) {
+        String pluralS = (count == 1) ? "" : "s";
+        return "There " + (count == 1 ? "is" : "are") + " currently " + count + " " + animalType + pluralS + " in our world.";
+    }
 
+    public static void main(String[] args) {
+        // Example usage
+        new Animal("lion", 4, Type.MAMMAL);
+        numberOfMammals++;
+
+        new Animal("salmon", 0, Type.FISH);
+        numberOfFish++;
+
+        new Animal("eagle", 2, Type.BIRD);
+        numberOfBirds++;
+        
+        System.out.println(getAnimalCountMessage(getNumberOfAnimals(), "animal"));
+        System.out.println(getAnimalCountMessage(getNumberOfMammals(), "mammal"));
+        System.out.println(getAnimalCountMessage(getNumberOfFish(), "fish"));
+        System.out.println(getAnimalCountMessage(getNumberOfBirds(), "bird"));
+    }
 }
