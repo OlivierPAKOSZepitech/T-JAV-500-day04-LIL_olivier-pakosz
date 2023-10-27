@@ -1,25 +1,26 @@
 public class Animal {
-    protected enum Type { MAMMAL, FISH, BIRD }
 
-    // Attributes
-    protected String name;
-    protected int legs;
-    protected Type type;
+    protected enum Type {
+        MAMMAL, FISH, BIRD
+    }
 
-    // Private static fields to keep track of the number of animals of each type
     private static int numberOfAnimals = 0;
     private static int numberOfMammals = 0;
     private static int numberOfFish = 0;
     private static int numberOfBirds = 0;
 
+    private String name;
+    private int legs;
+    private Type type;
+
     protected Animal(String name, int legs, Type type) {
         this.name = name;
         this.legs = legs;
         this.type = type;
-        System.out.println("My name is " + name + " and I am a " + getTypeString(type) + "!");
-    
+
         numberOfAnimals++;
-        switch (type) {
+
+        switch (type){
             case MAMMAL:
                 numberOfMammals++;
                 break;
@@ -30,79 +31,79 @@ public class Animal {
                 numberOfBirds++;
                 break;
         }
+
+        System.out.println("My name is " + getName() + " and I am a " + getType() + "!");
     }
 
-    // Getter for name
     public String getName() {
         return name;
     }
 
-    // Getter for legs
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
     public int getLegs() {
         return legs;
     }
 
-    // Getter for type (returns a String)
     public String getType() {
-        return getTypeString(type);
+        return type.name().toLowerCase();
     }
 
-    // Private static getter for the total number of animals
     public static int getNumberOfAnimals() {
+        StringBuilder sb = new StringBuilder();
+        sb
+                .append("There ")
+                .append(numberOfAnimals == 1 ? "is " : "are ")
+                .append("currently ")
+                .append(numberOfAnimals)
+                .append(numberOfAnimals == 1 ? " animal" : " animals")
+                .append(" in our world.");
+
+        System.out.println(sb.toString());
         return numberOfAnimals;
     }
 
-    // Private static getter for the number of mammals
-    public static int getNumberOfMammals() {
+    public static int getNumberOfMammals(){
+        StringBuilder sb = new StringBuilder();
+        sb
+                .append("There ")
+                .append(numberOfMammals == 1 ? "is " : "are ")
+                .append("currently ")
+                .append(numberOfMammals)
+                .append(numberOfMammals == 1 ? " mammal" : " mammals")
+                .append(" in our world.");
+
+        System.out.println(sb.toString());
         return numberOfMammals;
     }
 
-    // Private static getter for the number of fish
-    public static int getNumberOfFish() {
+    public static int getNumberOfFish(){
+        StringBuilder sb = new StringBuilder();
+        sb
+                .append("There ")
+                .append(numberOfFish == 1 ? "is " : "are ")
+                .append("currently ")
+                .append(numberOfFish)
+                .append(" fish in our world.");
+
+        System.out.println(sb.toString());
         return numberOfFish;
     }
 
-    // Private static getter for the number of birds
-    public static int getNumberOfBirds() {
+    public static int getNumberOfBirds(){
+        StringBuilder sb = new StringBuilder();
+        sb
+                .append("There ")
+                .append(numberOfBirds == 1 ? "is " : "are ")
+                .append("currently ")
+                .append(numberOfBirds)
+                .append(numberOfBirds == 1 ? " bird" : " birds")
+                .append(" in our world.");
+
+        System.out.println(sb.toString());
         return numberOfBirds;
     }
 
-    // Convert the Type enum to a string
-    protected String getTypeString(Type type) {
-        switch (type) {
-            case MAMMAL:
-                return "mammal";
-            case FISH:
-                return "fish";
-            case BIRD:
-                return "bird";
-            default:
-                return "unknown";
-        }
-    }
-
-    public static String getAnimalCountMessage(int count, String animalType) {
-        if (animalType.equals("fish")) {
-            return "There " + (count == 1 ? "is" : "are") + " currently " + count + " fish in our world.";
-        } else {
-            String pluralS = (count == 1) ? "" : "s";
-            return "There " + (count == 1 ? "is" : "are") + " currently " + count + " " + animalType + pluralS
-                    + " in our world.";
-        }
-    }
-
-    public static void main(String[] args) {
-        // Example usage
-        new Animal("lion", 4, Type.MAMMAL);
-
-        new Animal("salmon", 0, Type.FISH);
-
-        new Animal("eagle", 2, Type.BIRD);
-        numberOfBirds++;
-
-        System.out.println(getAnimalCountMessage(getNumberOfAnimals(), "animal"));
-        System.out.println(getAnimalCountMessage(getNumberOfMammals(), "mammal"));
-        System.out.println(getAnimalCountMessage(getNumberOfFish(), "fish"));
-        System.out.println(getAnimalCountMessage(getNumberOfBirds(), "bird"));
-    }
 }

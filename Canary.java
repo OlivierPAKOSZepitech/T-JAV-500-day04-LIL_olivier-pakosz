@@ -1,5 +1,18 @@
 public class Canary extends Animal {
-    public Canary(String name, int legs, Type type) {
-        super(name, legs, type);
+
+    private int eggs = 0;
+
+    public Canary(String name) {
+        super(name, 2, Type.BIRD);
+        System.out.println("Yellow and smart? Here I am!");
     }
+
+    public int getEggsCount() {
+        return eggs;
+    }
+
+    public void layEgg() {
+        this.eggs++;
+    }
+
 }
