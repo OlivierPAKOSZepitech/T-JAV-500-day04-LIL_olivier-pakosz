@@ -7,10 +7,10 @@ public class Animal {
     protected Type type;
 
     // Private static fields to keep track of the number of animals of each type
-    protected static int numberOfAnimals = 0;
-    protected static int numberOfMammals = 0;
-    protected static int numberOfFish = 0;
-    protected static int numberOfBirds = 0;
+    private static int numberOfAnimals = 0;
+    private static int numberOfMammals = 0;
+    private static int numberOfFish = 0;
+    private static int numberOfBirds = 0;
 
     protected Animal(String name, int legs, Type type) {
         this.name = name;
